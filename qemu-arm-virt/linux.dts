@@ -10,7 +10,7 @@
 	compatible = "linux,dummy-virt";
 
     aliases {
-		serial0 = "/pl011@9000000";
+		serial0 = "/pl011@90d0000";
     };
 
     psci {
@@ -35,11 +35,11 @@
 		compatible = "qemu,platform", "simple-bus";
 	};
 
-	pl011@9000000 {
+	pl011@90d0000 {
 		clock-names = "uartclk", "apb_pclk";
 		clocks = <0x8000 0x8000>;
 		interrupts = <0x0 0x1 0x4>;
-		reg = <0x0 0x9000000 0x0 0x1000>;
+		reg = <0x0 0x90d0000 0x0 0x1000>;
 		compatible = "arm,pl011", "arm,primecell";
 	};
 
@@ -99,8 +99,8 @@
 	};
 
 	chosen {
-		stdout-path = "/pl011@9000000";
-		bootargs = "earlycon=pl011,0x9000000 earlyprintk=serial debug loglevel=8";
-		linux,stdout-path = "/pl011@9000000";
+		stdout-path = "/pl011@90d0000";
+		bootargs = "earlycon=pl011,0x90d0000 earlyprintk=serial debug loglevel=8";
+		linux,stdout-path = "/pl011@90d0000";
     };
 };
